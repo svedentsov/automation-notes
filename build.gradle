@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id "io.qameta.allure" version "2.8.1" // Latest Plugin Version
+}
+
+allure {
+    autoconfigure = true
+    version = '2.13.5' // Latest Allure Version
+
+    useJUnit5 {
+        version = "2.13.5" // Latest Allure Version
+    }
+}
+
+sourceCompatibility = 1.14
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.13'
+    implementation 'org.slf4j:slf4j-nop:1.7.30'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    )
+    testRuntimeOnly(
+            'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
